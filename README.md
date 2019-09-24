@@ -27,4 +27,31 @@ Sebagai alternatif dari Maven, kita bisa menggunakan Gradle.
 (tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
 dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
 - [ ] Kenapa saya harus menggunakan Spring dalam pembuatan web?
-- [ ] Apa perbedaan github dengan gitlab?
+- [ ] Apa perbedaan github dengan gitlab?# Tutorial APAP
+
+
+## Tutorial 2
+### What I have learned today
+Saya telah belajar bagaimana membuat fitur dan method serta menggunakan service untuk menyimpan dan mengolah data. Termasuk add, update, dan delete data.
+
+#### Github
+1. Cobalah untuk menambahkan sebuah restoran dengan mengakses link http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%200Fasilkom&nomorTelepon=14022 Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Yang terjadi adalah error. Karena belum ada view add-restoran / add-restoran.html
+
+2. Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut: http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin
+%20FIK. Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Yang terjadi adalah error, karena tidak ada nomorTelepon di link tersebut. padahal kita men-state nomorTelepon itu required (wajib)
+
+3. Jika Papa APAP ingin melihat restoran PanyuFC , link apa yang harus
+diakses?
+http://localhost:8080/restoran/view?idRestoran=1
+
+4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/restoran/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshot mu.
+Yang ditampilkan adalah seluruh data restoran yang pernah di add.
+![menambah restoran baru](/images/screenshot-tutorial-2/1.png "add restoran baru")
+![membuka link viewall](/images/screenshot-tutorial-2/2.png "view all")
+
+### What I did not understand
+(tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
+dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
+- [ ] Fungsi dari @autowired
