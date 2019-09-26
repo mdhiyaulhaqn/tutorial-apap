@@ -6,6 +6,7 @@
     <body>
         <h2>Daftar Seluruh Restoran</h2>
             <div th:each="resto : ${restoList}">
+                <br>
                 <h3 th:text="'ID Restoran: ' + ${resto.idRestoran}"></h3>
                 <h3 th:text="'Nama Restoran: ' + ${resto.nama}"></h3>
                 <h3 th:text="'Alamat Restoran: ' + ${resto.alamat}"></h3>
