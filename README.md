@@ -55,3 +55,34 @@ Yang ditampilkan adalah seluruh data restoran yang pernah di add.
 (tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
 dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
 - [ ] Fungsi dari @autowired
+- 
+
+## Tutorial 3
+### What I have learned today
+Saya telah belajar bagaimana membuat sebuah aplikasi web dengan menggunakan database mysql dengan menggunakan pendekatan Object Relational Mapping (ORM) memakai JPA.
+
+1. Pada class MenuDb, terdapat method findByRestoranIdRestoran , apakah kegunaan dari
+method tersebut?
+Keguanaannya adalah untuk mendapatkan list yang berisikan semua menu yang ada pada suatu restoran.
+
+2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan
+addRestoranSubmit?
+method addRestoranFormPage berfungsi untuk me-render form add restoran serta membuat objek baru yang akan 'dioper' ke file html.
+Sedangkan, method addRestoranSubmit berfungsi untuk mendapatkan objek dari html serta menyimpannya kedalam database. Selain itu method ini untuk me-render halaman jika restoran berhasil ditambahkan.
+
+3. Jelaskan apa kegunaan dari JPA Repository?
+Modul JPA dari Spring Data berisi namespace kustom yang memungkinkan mendefinisikan repositori beans. JPA berfungsi untuk mengubah Java object ke relational database. Sehingga memungkinkan kita dalam menambah, update, dan delete di database dengan menggunakan java.
+
+4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan
+MenuModel dibuat?
+Pada class RestoranModel terdapat List yang berisi menu dan diberikan anotasi @OneToMany. Sehingga dibuatlah relasi OneToMany antara restoran dengan menu
+
+5. Jelaskan kegunaan FetchType.LAZY , CascadeType.ALL , dan FetchType.EAGER
+- FetchType.LAZY : fetching atau pengambilan data dari database hanya saat dibutuhkan/saat user mengakses methodnya
+- CascadeType.ALL : melakukan cascade (mempengaruhi entitas terkait) ketika dilakukan REMOVE, MERGE, dan lain sebagainya
+- FetchType.EAGER : fetching atau pengambilan data dari database dilakukan ketika aplikasi dijalankan
+
+### What I did not understand
+(tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
+dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
+- [ ] Kapan suatu logic code lebih baik dilakukan di controller dan kapan di service

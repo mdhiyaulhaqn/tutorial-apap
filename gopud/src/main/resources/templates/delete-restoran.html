@@ -5,10 +5,16 @@
 </head>
 <body>
     <div th:if="${restoran != null}">
-        <h2 th:text="'restoran dengan nama ' + ${restoran.nama} + ' berhasil dihapus'"></h2>
+        <div th:if="${isDeleted}">
+            <h2 th:text="'restoran dengan nama ' + ${restoran.nama} + ' berhasil dihapus'"></h2>
+        </div>
+        <div th:unless="${isDeleted}">
+            <h2 th:text="'restoran dengan nama ' + ${restoran.nama} + ' tidak bisa dihapus karena memiliki menu'"></h2>
+        </div>
     </div>
     <div th:unless="${restoran != null}">
         <h2 th:text="'Restoran dengan id ' + ${idRestoran} + ' tidak ditemukan.'"></h2>
     </div>
+
 </body>
 </html>
