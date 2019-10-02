@@ -86,3 +86,32 @@ Pada class RestoranModel terdapat List yang berisi menu dan diberikan anotasi @O
 (tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti
 dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
 - [ ] Kapan suatu logic code lebih baik dilakukan di controller dan kapan di service
+
+
+## Tutorial 4
+### What I have learned today
+Saya telah mempelajari bagaimana membuat presentation layer dari suatu web dengan menggunakan salah satu Java Library, yaitu Thymeleaf.
+
+1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana
+anda menyelesaikan latihan nomor 2
+Untuk membuat agar Navigation bar dinamis mengikuti title dari setiap html, saya menambahkan attribute pada model bernama titleTab. Pada setiap fungsi di controller, akan ditambahkan nama title ke key 'titleTab', lalu 'titleTab' akan dipanggil di 'fragment.html' bagian tag navbar
+
+2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda
+menyelesaikan latihan nomor 3
+- Pada menuController, saya membuat 4 fungsi. 2 untuk form dan submit, 1 untuk add row, dan 1 lagi untuk delete row
+- Pada fungsi add(..) saya membuat object restoran dan list menu untuk nantinya digunakan dalam menyimpan data form
+- pada fungsi addMenuSubmit(..) saya mengambil semua object menu lalu diset restorannya sesuai dengan id
+- pada fungsi addRow() saya menambah object menu dan memasukkannya kedalam list
+- pada fungsi addRow() saya mengurangi object menu dari list
+- pada form-add-menu.html saya mengambil object dari fungsi di controller yang telah dibuat. Lalu saya melakukan loop pada listMenu sehingga terdapat sebanya n baris form. Untuk memasukkan data form ke dalam masing-masing object saya menggunakan th:field sesuai dengan indexnya.
+
+3. Jelaskan perbedaan th:include dan th:replace
+th:include = Mengambil isi dari fragment yang dituju tanpa menghilangkan yang memanggil
+th.replace = Mengambil isi dari fragment yang dituju dan me-replace tag yang memanggilnya
+
+4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+Penggunaannya adalah pada suatu tag (misal tag form), ditulis 'th:model="${namaObject}".
+Object ini diinisiasi di controller lalu dilempar ke html. Untuk selanjutnya attribute object tersebut diisi oleh isi dari form. Selanjutnya object ini akan dilempar ke controller dan dimasukkan ke dalam database.
+
+### What I did not understand
+- [ ] fungsi sebenarnya "name" pada tag input
