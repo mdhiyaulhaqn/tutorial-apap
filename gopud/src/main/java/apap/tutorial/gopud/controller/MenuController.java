@@ -1,6 +1,5 @@
 package apap.tutorial.gopud.controller;
 
-import apap.tutorial.gopud.model.ListMenuModel;
 import apap.tutorial.gopud.model.MenuModel;
 import apap.tutorial.gopud.model.RestoranModel;
 import apap.tutorial.gopud.service.MenuService;
