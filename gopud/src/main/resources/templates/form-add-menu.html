@@ -2,25 +2,47 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title> Add Menu </title>
+
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 
 <body>
-<h3> Tambah Produk </h3>
-<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
-    <input type="hidden" th:field="*{restoran}"/>
-    Nama: <br>
-    <input type="text" name="nama" />
-    <br>
-    Deskripsi: <br>
-    <input type="text" name="deskripsi"/>
-    <br>
-    Harga: <br>
-    <input type="number" name="harga"/>
-    <br>
-    durasiMasak (menit): <br>
-    <input type="number" name="durasiMasak" />
-    <br>
-    <button type="submit"> Submit </button>
-</form>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+    <h3> Tambah Produk </h3>
+    <div class="row">
+    <form th:action="@{/menu/add/{id}(id=${idRestoran})}" th:object="${restoran}" method="POST">
+        <input type="hidden" th:field="*{idRestoran}"/>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" style="text-align: center"> Nama </th>
+                    <th scope="col" style="text-align: center"> Deskripsi </th>
+                    <th scope="col" style="text-align: center"> Harga </th>
+                    <th scope="col" style="text-align: center"> Durasi Masak </th>
+                    <th scope="col" style="text-align: center">
+                        <button type="submit" class="btn btn-primary" name="addRow">Tambah</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="menu, indexStat : *{listMenu}">
+                    <td scope="row" style="text-align: center"><input type="text" name="nama" th:field="*{listMenu[__${indexStat.index}__].nama}"/></td>
+
+                    <td scope="row" style="text-align: center"><input type="text" name="deskripsi" th:field="*{listMenu[__${indexStat.index}__].deskripsi}"/></td>
+
+                    <td scope="row" style="text-align: center"><input type="number" name="harga" th:field="*{listMenu[__${indexStat.index}__].harga}"/></td>
+
+                    <td scope="row" style="text-align: center"><input type="number" name="durasiMasak" th:field="*{listMenu[__${indexStat.index}__].durasiMasak}"/></td>
+
+                    <td scope="row" style="text-align: center">
+                        <button type="submit" name="removeRow" th:value="${indexStat.index}" class="btn btn-danger">Hapus</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" name="save" class="btn btn-primary"> Submit </button>
+    </form>
+    </div>
 </body>
 </html>

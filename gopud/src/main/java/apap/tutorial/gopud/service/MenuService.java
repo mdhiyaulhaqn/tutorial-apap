@@ -1,6 +1,7 @@
 package apap.tutorial.gopud.service;
 
 import apap.tutorial.gopud.model.MenuModel;
+import apap.tutorial.gopud.model.RestoranModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface MenuService {
     Optional<MenuModel> getMenuByIdMenu(Long idMenu);
 
     void delete(MenuModel menu);
+
+    List<MenuModel> getListMenuOrderByHargaAsc(Long idRestoran);
 }
