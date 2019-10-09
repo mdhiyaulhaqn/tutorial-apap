@@ -25,13 +25,17 @@ public class RestoranController {
     private MenuService menuService;
 
     @RequestMapping("/")
-    public String home() {return "home";}
+    public String home(Model model) {
+        model.addAttribute("titleTab", "Apap Tutorial");
+        return "home";
+    }
 
     //URL mapping add
     @RequestMapping(value = "/restoran/add", method = RequestMethod.GET)
     public String addRestoranFormPage(Model model){
         RestoranModel newRestoran = new RestoranModel();
         model.addAttribute("restoran", newRestoran);
+        model.addAttribute("titleTab", "Add Restoran");
         return "form-add-restoran";
     }
 
@@ -50,10 +54,12 @@ public class RestoranController {
     ){
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
 
-        model.addAttribute("resto", restoran);
+        List<MenuModel> menuList = menuService.getListMenuOrderByHargaAsc(restoran.getIdRestoran());
 
-        List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
-        model.addAttribute("menuList", menuList);
+        restoran.setListMenu(menuList);
+
+        model.addAttribute("resto", restoran);
+        model.addAttribute("titleTab", "View Restoran");
 
         return "view-restoran";
     }
@@ -63,6 +69,7 @@ public class RestoranController {
         //Mengambil existing data restoran
         RestoranModel existingRestoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
         model.addAttribute("restoran", existingRestoran);
+        model.addAttribute("titleTab", "Change Restoran");
         return "form-change-restoran";
     }
 
@@ -81,6 +88,7 @@ public class RestoranController {
         Collections.sort(listRestoran);
 
         model.addAttribute("restoList", listRestoran);
+        model.addAttribute("titleTab", "View Restoran");
 
         return "viewall-restoran";
     }
