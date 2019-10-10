@@ -141,15 +141,15 @@ Karena, main class spring bukan code yang dibuat programmer untuk membuat suatu 
     #### Screenshot Coverage
     ##### Latihan 1
     ###### Sebelum
-    ![sebelum menu service](/images/screenshot-tutorial-5/sebelum_menu_service.png "sebelum menu service")
+    ![sebelum menu service](/images/screenshot-tutorial-5/menu_service_sebelum.png "sebelum menu service")
     ###### Sesudah
-    ![sesudah](/images/screenshot-tutorial-5/sebelum_menu_service.png "sesudah menu service")
+    ![sesudah menu service](/images/screenshot-tutorial-5/menu_service_sesudah.png "sesudah menu service")
     
     ##### Latihan 2
     ###### Sebelum
-    ![sebelum restoran controller](/images/screenshot-tutorial-5/sebelum_menu_service.png "sebelum restoran controller")
+    ![sebelum restoran controller](/images/screenshot-tutorial-5/restoran_controller_sebelum.png "sebelum restoran controller")
     ###### Sesudah
-    ![sesudah restoran controller](/images/screenshot-tutorial-5/sebelum_menu_service.png "sesudah restoran controller")
+    ![sesudah restoran controller](/images/screenshot-tutorial-5/restoran_controller_sesudah.png "sesudah restoran controller")
 
 ### What I did not understand
 - [ ] Apa yang terjadi jika when yang sama ada 2 namun and then berbeda. Seperti yang satu thenReturn, satu lagi thenThrow
