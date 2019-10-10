@@ -138,18 +138,18 @@ perhitungan coverage? Apa saja yang dapat menyebabkan suatu class dapat di- excl
 perhitungan code coverage.
 Karena, main class spring bukan code yang dibuat programmer untuk membuat suatu fitur. Melainkan memang harus ada ketika pada suatu project agar program bisa jalan (built-in). Sehingga, jika main class spring tetap di-include dapat mengurangi persentase coverage, padahal file tersebut tidak dibuat atau dikontrol.
 
-    #### Screenshot Coverage
-    ##### Latihan 1
-    ###### Sebelum
-    ![sebelum menu service](/images/screenshot-tutorial-5/menu_service_sebelum.png "sebelum menu service")
-    ###### Sesudah
-    ![sesudah menu service](/images/screenshot-tutorial-5/menu_service_sesudah.png "sesudah menu service")
+#### Screenshot Coverage
+##### Latihan 1
+###### Sebelum
+![sebelum menu service](/images/screenshot-tutorial-5/menu_service_sebelum.png "sebelum menu service")
+###### Sesudah
+![sesudah menu service](/images/screenshot-tutorial-5/menu_service_sesudah.png "sesudah menu service")
     
-    ##### Latihan 2
-    ###### Sebelum
-    ![sebelum restoran controller](/images/screenshot-tutorial-5/restoran_controller_sebelum.png "sebelum restoran controller")
-    ###### Sesudah
-    ![sesudah restoran controller](/images/screenshot-tutorial-5/restoran_controller_sesudah.png "sesudah restoran controller")
+##### Latihan 2
+###### Sebelum
+![sebelum restoran controller](/images/screenshot-tutorial-5/restoran_controller_sebelum.png "sebelum restoran controller")
+###### Sesudah
+![sesudah restoran controller](/images/screenshot-tutorial-5/restoran_controller_sesudah.png "sesudah restoran controller")
 
 ### What I did not understand
 - [ ] Apa yang terjadi jika when yang sama ada 2 namun and then berbeda. Seperti yang satu thenReturn, satu lagi thenThrow
