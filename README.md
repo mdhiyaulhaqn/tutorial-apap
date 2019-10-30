@@ -115,3 +115,41 @@ Object ini diinisiasi di controller lalu dilempar ke html. Untuk selanjutnya att
 
 ### What I did not understand
 - [ ] fungsi sebenarnya "name" pada tag input
+
+
+## Tutorial 5
+### What I have learned today
+Pada tutorial kali ini, saya mempelajari membuat unit test untuk service dan controller pada framework Spring (dengan arsitektur MVC). Selain itu juga saya mengetahui cara melihat code coverage dengan menggunakan fitur dari maven.
+
+1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and
+then.
+Bagian given adalah mulai dari inisiasi restoran dengan pemanggilan constructor, melakukan set attribut restoran, dan sampai when. Sedangkan when adalah ketika pemanggilan mockMvc.perform(get("/restoran/view?idRestoran=1")). Serta bagian and then adalah ketika pemanggilan method andExpect().
+
+2. Jelaskan perbedaan line coverage dan logic coverage.
+Line coverage   Logic coverage memastikan bahwa tes tidak hanya mencapai line tertentu, tetapi beberapa kondisi juga tercover dengan mencoba beberapa kombinasi (sehingga seperti if else bisa tercover). 
+
+3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test ? Mengapa
+seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
+terjadi?
+Pada keadaan ideal, seharusnya unit test dibuat terlebih dahulu. Karena unit test berfungsi agar programmer membuat program sesuai dengan kebutuhan user/yang diharapkan dan juga mengurangi kemungkinan terjadinya error. Jika urutannya dibalik, maka progoram yang dibuat bisa tidak sesuai harapan dan kemungkinan terjadinya error menjadi tinggi, serta tentunya akan memakan waktu lebih banyak.
+
+4. [Bonus] Jelaskan mengapa pada latihan no 3, main class spring tidak diikutsertakan ke dalam
+perhitungan coverage? Apa saja yang dapat menyebabkan suatu class dapat di- exclude dari
+perhitungan code coverage.
+Karena, main class spring bukan code yang dibuat programmer untuk membuat suatu fitur. Melainkan memang harus ada ketika pada suatu project agar program bisa jalan (built-in). Sehingga, jika main class spring tetap di-include dapat mengurangi persentase coverage, padahal file tersebut tidak dibuat atau dikontrol.
+
+#### Screenshot Coverage
+##### Latihan 1
+###### Sebelum
+![sebelum menu service](/images/screenshot-tutorial-5/menu_service_sebelum.PNG)
+###### Sesudah
+![sesudah menu service](/images/screenshot-tutorial-5/menu_service_sesudah.PNG)
+    
+##### Latihan 2
+###### Sebelum
+![sebelum restoran controller](/images/screenshot-tutorial-5/restoran_controller_sebelum.PNG)
+###### Sesudah
+![sesudah restoran controller](/images/screenshot-tutorial-5/restoran_controller_sesudah.PNG)
+
+### What I did not understand
+- [ ] Apa yang terjadi jika when yang sama ada 2 namun and then berbeda. Seperti yang satu thenReturn, satu lagi thenThrow
