@@ -73,7 +73,7 @@ public class RestoranRestServiceImpl implements RestoranRestService {
 
     @Override
     public Mono<String> getStatus(Long idRestoran) {
-        return this.webClient.get().uri("/rest/restoran/"+idRestoran+"/status/")
+        return this.webClient.get().uri("/rest/restoran/"+idRestoran+"/status")
                 .retrieve().bodyToMono(String.class);
     }
 
@@ -82,6 +82,7 @@ public class RestoranRestServiceImpl implements RestoranRestService {
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("alamat", "Jalan Akses UI No 2");
         data.add("nomorTelepon", "028102810");
+        System.out.println("MASUUKKK");
         return this.webClient.post().uri("/rest/restoran/full")
                 .syncBody(data)
                 .retrieve()
