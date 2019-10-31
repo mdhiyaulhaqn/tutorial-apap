@@ -153,3 +153,19 @@ Karena, main class spring bukan code yang dibuat programmer untuk membuat suatu 
 
 ### What I did not understand
 - [ ] Apa yang terjadi jika when yang sama ada 2 namun and then berbeda. Seperti yang satu thenReturn, satu lagi thenThrow
+
+## Tutorial 5
+### What I have learned today
+Pada tutorial kali ini, saya mempelajari bagaimana membuat web service dan bagaimana cara menggunakan api dari luar. Selain itu, saya juga mempelajari bagaimana cara menggunakan Postman
+
+1. Apa itu postman? Apa kegunaan dari postman?
+Postman adalah sebuah aplikasi yang digunakan untuk melakukan testing REST API yang telah kita buat atau milik orang lain.
+
+2. Apa kegunaan dari annotation @JsonIgnoreProperties?
+@JsonIgnoreProperties adalah sebuah anotasi yang berfungsi untuk mengabaikan pemrosesan properti JSON yang dibaca atau untuk menekan atau memberhentikan serialisasi
+
+3. Apa itu ResponseEntity dan apa kegunaannya?
+ResponseEntity adalah response dari aplikasi, termasuk header, body, dan status. Fungsinya jika ada yang memberikan request kepada web service kita, kita dapat menggunakan ResponseEntity untuk menjawabnya.
+
+### What I did not understand
+- [ ] Apa itu Mono, fungsi dan method .syncBody()data.retrieve().bodyToMono
