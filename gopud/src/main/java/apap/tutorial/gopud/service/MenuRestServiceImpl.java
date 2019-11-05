@@ -2,10 +2,12 @@ package apap.tutorial.gopud.service;
 
 import apap.tutorial.gopud.model.MenuModel;
 import apap.tutorial.gopud.repository.MenuDb;
+import apap.tutorial.gopud.rest.MenuDetail;
 import apap.tutorial.gopud.rest.Setting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import javax.transaction.Transactional;
 import java.awt.*;
@@ -59,5 +61,11 @@ public class MenuRestServiceImpl implements MenuRestService {
     public void deleteMenu(Long idMenu) {
         MenuModel menu = getMenuByIdMenu(idMenu);
         menuDb.delete(menu);
+    }
+
+    @Override
+    public Mono<String> getMenuByChefName(String chefName) {
+        return this.webClient.get().uri("/api/v1/restoran/chef?nama"+chefName)
+                .retrieve().bodyToMono(String.class);
     }
 }

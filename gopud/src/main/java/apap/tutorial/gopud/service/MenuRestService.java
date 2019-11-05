@@ -1,6 +1,8 @@
 package apap.tutorial.gopud.service;
 
 import apap.tutorial.gopud.model.MenuModel;
+import apap.tutorial.gopud.rest.MenuDetail;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -14,4 +16,6 @@ public interface MenuRestService {
     List<MenuModel> retriveListMenu();
 
     void deleteMenu(Long idMenu);
+
+    Mono<String> getMenuByChefName(String chefName);
 }

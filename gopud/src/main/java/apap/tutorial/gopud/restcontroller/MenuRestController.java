@@ -5,9 +5,11 @@ import apap.tutorial.gopud.service.MenuRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -69,5 +71,10 @@ public class MenuRestController {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND, "Menu with ID "+String.valueOf(menuId)+" Not Found!");
         }
+    }
+
+    @RequestMapping(value = "/restoran/chef")
+    private Mono<String> getMenuDemo(@RequestParam(value= "namaChef") String namaChef){
+        return menuRestService.getMenuByChefName(namaChef);
     }
 }
