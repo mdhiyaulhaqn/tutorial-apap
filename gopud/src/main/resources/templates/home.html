@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://maven.apache.org/FML/1.0.1" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
 <head>
     <title> Home </title>
 
@@ -17,7 +18,8 @@
             <a th:href="@{restoran/view-all}" style="color : white"> View All Restoran </a>
         </button>
         <hr>
-        <div class="row">
+        <!--<div class="row" th:if="${#authorization.expression('hasRole(''ADMIN'')')">-->
+        <div class="row" sec:authorize="hasAuthority('ADMIN')">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Tambah User Baru</div>
@@ -25,10 +27,10 @@
                         <form th:action="@{user/addUser}" method="POST">
                             <label> User Name </label>
                             <input type="text" name="username" class="form-control"/>
-
                             <label> Password </label>
-                            <input type="password" name="password" class="form-control"/>
-
+                            <input
+                                    pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    type="password" name="password" class="form-control"/>
                             <label> Role </label>
                             <select name="role" class="form-control">
                                 <option selected value=""> -- Pilih Role -- </option>
