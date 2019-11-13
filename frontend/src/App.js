@@ -3,9 +3,15 @@ import List from "./components/List";
 import dummyItems from "./items.json";
 
 export default class App extends React.Component{
-  state = {
-    favItems: []
-  };
+  constructor(props){
+    super(props);
+    this.state={
+      checked: false,
+      favItems: [],
+
+    };
+    this.handleShowFavorite =  this.handleShowFavorite.bind(this);
+  }
 
   handleItemClick = item => {
     const newItems = [...this.state.favItems];
@@ -19,8 +25,15 @@ export default class App extends React.Component{
     this.setState({ favItems: newItems});
   };
 
+    handleShowFavorite() {
+        this.setState({
+            checked: !this.state.checked
+        })
+    }
+
     render(){
       const { favItems } = this.state;
+
       return(
           <div className="container-fluid">
             <h1 className="text-center">
@@ -28,10 +41,7 @@ export default class App extends React.Component{
               <small>Class-based</small>
             </h1>
             <div style={{textAlign:"right"}}>
-              {/*<div className="row">*/}
-                <label><input type="checkbox"/> Show Favorit</label>
-
-              {/*</div>*/}
+                <label><input type="checkbox" onChange={this.handleShowFavorite}/> Show Favorit</label>
             </div>
             <div className="container pt-3">
               <div className="row">
@@ -43,7 +53,7 @@ export default class App extends React.Component{
                     hidden={true}
                     />
                 </div>
-                <div className="col-sm">
+                <div className="col-sm" hidden={!this.state.checked}>
                   <List
                     title="My Favorite"
                     items={favItems}
