@@ -169,3 +169,25 @@ ResponseEntity adalah response dari aplikasi, termasuk header, body, dan status.
 
 ### What I did not understand
 - [ ] Apa itu Mono, fungsi dan method .syncBody()data.retrieve().bodyToMono
+
+
+## Tutorial 6
+### What I have learned today
+Pada tutorial ini, saya belajar bagaimana membuat authentication dan authorization serta validasi password dengan menggunakan Spring
+
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+yang telah anda buat) konsep tersebut diimplementasi?
+Otentikasi adalah proses saat aplikasi login dijalankan dengan memeriksa apakah user yang dimaksud benar atau ngga. Sehingga program mengetahui apakah ia adalah orang yang benar atau bukan. Sedangkan otorisasi adalah proses memberi hak akses berdasarkan role setelah user melakukan otentikasi. Otentikasi diimplementasikan pada fitur login dan Otorisasi diimplementasikan pada bagian WebSecurityConfig.
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+BCryptPasswordEncoder adalah modul Spring yang berfungsi untuk melakukan encode atau encrypt password. Cara kerjanya adalah dengan membuat objek dari class BCryptPasswordEncoder dan memanggil method yang ada di dalamnya seperti match, encode, dll.
+
+3. Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+UUID, yaitu Universally Unique Identifier berfungsi untuk melakukan generate ID dalam sebuah model/tabel untuk suatu user. UUID ini berisi 128 bit bertipe long yang unik. ID ini disimpan dengan bentuk hexa
+
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?
+UserDetailsServiceImpl mengimplement UserDetailsService yang berasal dari modul userdetail milik spring. Class ini digunakan untuk mendapatkan detail user yang sedang login untuk masalah otorisasi.
+
+### What I did not understand
+- [ ] fungsi Granted Authorities
+- [ ] cara kerja configAuthentication pada WebSecurityConfig
