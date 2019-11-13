@@ -27,6 +27,12 @@ export default class App extends React.Component{
                 Welcome !
               <small>Class-based</small>
             </h1>
+            <div style={{textAlign:"right"}}>
+              {/*<div className="row">*/}
+                <label><input type="checkbox"/> Show Favorit</label>
+
+              {/*</div>*/}
+            </div>
             <div className="container pt-3">
               <div className="row">
                 <div className="col-sm">
