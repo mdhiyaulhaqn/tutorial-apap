@@ -2,16 +2,16 @@ import React, { Component }from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Restorans from './containers/Restorans/Restorans';
-import layout from './components/Layout/Layout';
+import Layout from './components/Layout/Layout';
 
 class App extends Component{
   render(){
     return (
-      <div>
-        <layout>
+      <React.Fragment>
+        <Layout>
           <Restorans />
-        </layout>
-      </div>
+        </Layout>
+      </React.Fragment>
     );
   }
 }
