@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import Restoran from '../../components/Restoran/Restoran';
 import classes from './Restorans.module.css'
+import axios from "../../axios-restoran";
 
 class Restorans extends Component{
     constructor(props){
         super(props)
         this.state = {
-            restorans:
-            [
-                {id: 1, nama: "Restoran A", alamat: "This is address Restoran A", nomorTelepon: "021735313"},
-                {id: 2, nama: "Restoran B", alamat: "This is address Restoran B", nomorTelepon: "021120491"},
-                {id: 3, nama: "Restoran C", alamat: "This is address Restoran C", nomorTelepon: "021940256"},
-            ],
+            restorans:[],
             isLoading: true
         }
     }
 
-    // componentDidMount(){
-    //     console.log("componentDidMount()");
-    // }
+    componentDidMount(){
+        this.loadRestorans();
+    }
+
+    loadRestorans = async () => {
+        const fetchedRestorans =[];
+        const response = await axios.get("/restorans");
+        for(let key in response.data){
+            fetchedRestorans.push({
+                ...response.data[key]
+            });
+        }
+        this.setState({
+            restorans: fetchedRestorans
+        });
+    }
 
     // shouldComponentUpdate(nextProps, nextState){
     //     console.log("shouldComponentUpdate()");
