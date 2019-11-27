@@ -191,3 +191,28 @@ UserDetailsServiceImpl mengimplement UserDetailsService yang berasal dari modul 
 ### What I did not understand
 - [ ] fungsi Granted Authorities
 - [ ] cara kerja configAuthentication pada WebSecurityConfig
+
+
+## Tutorial 6
+### What I have learned today
+Pada tutorial ini, saya belajar bagaimana membuat frontend website dengan menggunakan React.js
+
+1. Hilangkan checkbox pada item di list bagian kiri. 
+Untuk menghilangkan checkbox pada list di sebelah kiri, saya menggunakan parameter/property tambahhan, yaitu "hidden". paramater ini digunakan di class Item, tepatnya pada tag input. Paarameter "hidden" bernilai true atau false yang. Pada App.js, untuk list kiri hidden berisi true, dan kanan berisi false.
+![code set hidden value](/images/screenshot-tutorial-8/1.1.PNG)
+![code penggunaan props hidden](/images/screenshot-tutorial-8/1.2.PNG)
+
+2. Menghapus dari favorite jika item dikiri di klik lagi
+Untuk melakukan hal tersebut, maka sudah di-handle pada function handleItemClick di App.js. Jika dicari di list favorit belum ada, maka akan targetInd akan bernilai -1 dan item akan di push ke list favorite. Sedangkan jika sudah ada bernilai 0 dan item akan dihapus dari list favorite. 
+![code handleItemClick](/images/screenshot-tutorial-8/2.1.PNG)
+![hasil console.log()](/images/screenshot-tutorial-8/2.2.PNG)
+
+3. Membuat toggle untuk menampilkan dan menyembunyikan list favorit
+Saya membuat state lagi yang bernama "checked" yang berisi boolean. Jika checkbox di klik, maka akan memanggil fungsi handleShowFavorite yang merubah state dari "checked". Lalu, "checked" digunakan untuk menentukan apakah list favorite akan hidden atau tidak.
+![code checkbox](/images/screenshot-tutorial-8/3.1.PNG)
+![code fungsi](/images/screenshot-tutorial-8/3.2.PNG)
+![code penggunaan](/images/screenshot-tutorial-8/3.3.PNG)
+
+4. Jika daftar favorit kosong, maka tampilkan empty state.
+Untuk itu, saya mengecek pada function List, jika panjang itemsnya 0 (tidak ada isinya), maka akan me-return empty state. Sedangkan jika tidak, akan mereturn list item
+![code conditional for empty state](/images/screenshot-tutorial-8/4.1.PNG)
