@@ -11,6 +11,7 @@ class Restorans extends Component{
         this.state = {
             restorans:[],
             isCreate: false,
+            isEdit: false,
             isLoading: true,
             nama:  "",
             alamat: "",
@@ -41,7 +42,7 @@ class Restorans extends Component{
     }
 
     canceledHandler = () => {
-        this.setState({isCreate: false});
+        this.setState({isCreate: false, isEdit: false});
     }
 
     changeHandler = event => {
@@ -56,6 +57,17 @@ class Restorans extends Component{
         this.canceledHandler();
     }
 
+    editRestoranHandler(restoran){
+        this.setState({
+            isEdit: true,
+            idRestoran: restoran.idRestoran,
+            nama: restoran.nama,
+            nomorTelepon: restoran.nomorTelepon,
+            rating: restoran.rating,
+            alamat: restoran.alamat
+        })
+    }
+
     async addRestoran(){
         const restoranToAdd = {
             nama: this.state.nama,
@@ -68,7 +80,30 @@ class Restorans extends Component{
         await this.loadRestorans();
     }
 
+    submitEditRestoranHandler = event => {
+        console.log("editing")
+        event.preventDefault();
+        this.setStaet({ isLoading: true });
+        this.editRestoran();
+        this.canceledHandler();
+    }
+
+    async editRestoran(){
+        const restoranToEdit = {
+            idRestoran: this.state.idRestoran,
+            nama: this.state.nama,
+            alamat: this.state.alamat,
+            nomorTelepon: this.state.nomorTelepon,
+            rating: this.state.rating
+        }
+
+        await axios.put("/restoran/" + this.state.idRestoran, restoranToEdit);
+        await this.loadRestorans();
+        this.canceledHandler();
+    }
+
     renderForm(){
+        const { isEdit } = this.state;
         return (
             <form>
                 <input
@@ -106,7 +141,8 @@ class Restorans extends Component{
                 <Button btnType="Danger" onClick={this.canceledHandler}>
                     CANCEL
                 </Button>
-                <Button btnType="Success" onClick={this.submitAddRestoranHandler}>
+                <Button btnType="Success" onClick={
+                    isEdit ? this.submitEditRestoranHandler : this.submitAddRestoranHandler}>
                     SUBMIT
                 </Button>
             </form>
