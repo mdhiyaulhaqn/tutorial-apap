@@ -35,3 +35,8 @@
     justify-items: right;
     padding-top: 20px;
 }
+
+.PaginationButton{
+    display: flex;
+    align-items: center;
+}

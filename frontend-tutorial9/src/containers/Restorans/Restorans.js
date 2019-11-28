@@ -18,7 +18,10 @@ class Restorans extends Component{
             alamat: "",
             nomorTelepon: "",
             rating: "",
+            currentPage: 1,
+            restoransPerPage: 5
         }
+        this.changePageHandler = this.changePageHandler.bind(this);
     }
 
     componentDidMount(){
@@ -191,10 +194,13 @@ class Restorans extends Component{
                 filteredRestorans: array
             })
         }
-
-        
-        
     }
+    
+    changePageHandler(event) {
+        this.setState({
+          currentPage: Number(event.target.id)
+        });
+      }
     // shouldComponentUpdate(nextProps, nextState){
     //     console.log("shouldComponentUpdate()");
     //     return true;
@@ -208,6 +214,32 @@ class Restorans extends Component{
 
     render(){
         // console.log("render()");
+
+        const { filteredRestorans, currentPage, restoransPerPage } = this.state;
+
+        // Logic for displaying todos
+        const indexOfLastRestoran = currentPage * restoransPerPage;
+        const indexOfFirstRestoran = indexOfLastRestoran - restoransPerPage;
+        const currentRestorans = filteredRestorans.slice(indexOfFirstRestoran, indexOfLastRestoran);
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(filteredRestorans.length / restoransPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                    <button
+                        key={number}
+                        id={number}
+                        onClick={this.changePageHandler}
+                        >
+                        {number}
+                    </button>
+                );
+        });
+
         return(
             <React.Fragment>
                 <Modal show={this.state.isCreate || this.state.isEdit}
@@ -227,7 +259,7 @@ class Restorans extends Component{
                     {this.renderSearchForm()}
                 </div>
                 <div className={classes.Restorans}>
-                    {this.state.filteredRestorans.map(restoran =>
+                    {currentRestorans.map(restoran =>
                         <Restoran
                             key={restoran.id}
                             nama={restoran.nama}
@@ -237,6 +269,9 @@ class Restorans extends Component{
                             delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
                             />)
                         }
+                </div>
+                <div className={classes.PaginationButton}>
+                    {renderPageNumbers}
                 </div>
 
                 {/* <button onClick={this.loadingHandler}>changeState</button> */}
