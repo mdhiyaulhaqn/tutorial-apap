@@ -83,7 +83,7 @@ class Restorans extends Component{
     submitEditRestoranHandler = event => {
         console.log("editing")
         event.preventDefault();
-        this.setStaet({ isLoading: true });
+        this.setState({ isLoading: true });
         this.editRestoran();
         this.canceledHandler();
     }
@@ -100,6 +100,11 @@ class Restorans extends Component{
         await axios.put("/restoran/" + this.state.idRestoran, restoranToEdit);
         await this.loadRestorans();
         this.canceledHandler();
+    }
+
+    async deleteRestoranHandler(restoranId){
+        await axios.delete('/restoran/' + restoranId);
+        await this.loadRestorans();
     }
 
     renderForm(){
@@ -184,6 +189,8 @@ class Restorans extends Component{
                             nama={restoran.nama}
                             alamat={restoran.alamat}
                             nomorTelepon={restoran.nomorTelepon}
+                            edit={() => this.editRestoranHandler(restoran)}
+                            delete={() => this.deleteRestoranHandler(restoran.idRestoran)}
                             />)
                         }
                 </div>
