@@ -10,13 +10,14 @@ class Restorans extends Component{
         super(props)
         this.state = {
             restorans:[],
+            filteredRestorans:[],
             isCreate: false,
             isEdit: false,
             isLoading: true,
             nama:  "",
             alamat: "",
             nomorTelepon: "",
-            rating: ""
+            rating: "",
         }
     }
 
@@ -33,7 +34,8 @@ class Restorans extends Component{
             });
         }
         this.setState({
-            restorans: fetchedRestorans
+            restorans: fetchedRestorans,
+            filteredRestorans: fetchedRestorans,
         });
     }
 
@@ -52,7 +54,7 @@ class Restorans extends Component{
 
     submitAddRestoranHandler = event => {
         event.preventDefault();
-        this.setState({ isLoading: true});
+        this.setState({ isLoading: true, nama: "", nomorTelepon: "", rating: "", alamat: ""});
         this.addRestoran();
         this.canceledHandler();
     }
@@ -154,6 +156,45 @@ class Restorans extends Component{
         );
     }
 
+    renderSearchForm(){
+        return(<form>
+            <input
+                name="search"
+                type="text"
+                placeholder="Search..."
+                onChange={this.changeSearchHandler}
+            ></input>
+        </form>
+        );
+    }
+    
+    changeSearchHandler = event => {
+        const {value } = event.target;
+        this.searchHandler(value);
+    }
+
+    searchHandler(search){
+        let array = []
+
+        if(search.length === 0){
+            this.setState({
+                filteredRestorans: this.state.restorans 
+            })
+        } else {
+            for(let index in this.state.restorans){
+                if(search.toLowerCase() === this.state.restorans[index].nama.toLowerCase().slice(0, search.length)){
+                    array.push(this.state.restorans[index])
+                }
+            }
+
+            this.setState({
+                filteredRestorans: array
+            })
+        }
+
+        
+        
+    }
     // shouldComponentUpdate(nextProps, nextState){
     //     console.log("shouldComponentUpdate()");
     //     return true;
@@ -182,8 +223,11 @@ class Restorans extends Component{
                             + Add New Restoran
                     </button>
                 </div>
+                <div>
+                    {this.renderSearchForm()}
+                </div>
                 <div className={classes.Restorans}>
-                    {this.state.restorans.map(restoran =>
+                    {this.state.filteredRestorans.map(restoran =>
                         <Restoran
                             key={restoran.id}
                             nama={restoran.nama}
