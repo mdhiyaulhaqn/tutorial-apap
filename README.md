@@ -154,7 +154,8 @@ Karena, main class spring bukan code yang dibuat programmer untuk membuat suatu 
 ### What I did not understand
 - [ ] Apa yang terjadi jika when yang sama ada 2 namun and then berbeda. Seperti yang satu thenReturn, satu lagi thenThrow
 
-## Tutorial 5
+
+## Tutorial 6
 ### What I have learned today
 Pada tutorial kali ini, saya mempelajari bagaimana membuat web service dan bagaimana cara menggunakan api dari luar. Selain itu, saya juga mempelajari bagaimana cara menggunakan Postman
 
@@ -171,7 +172,7 @@ ResponseEntity adalah response dari aplikasi, termasuk header, body, dan status.
 - [ ] Apa itu Mono, fungsi dan method .syncBody()data.retrieve().bodyToMono
 
 
-## Tutorial 6
+## Tutorial 7
 ### What I have learned today
 Pada tutorial ini, saya belajar bagaimana membuat authentication dan authorization serta validasi password dengan menggunakan Spring
 
@@ -193,7 +194,7 @@ UserDetailsServiceImpl mengimplement UserDetailsService yang berasal dari modul 
 - [ ] cara kerja configAuthentication pada WebSecurityConfig
 
 
-## Tutorial 6
+## Tutorial 8
 ### What I have learned today
 Pada tutorial ini, saya belajar bagaimana membuat frontend website dengan menggunakan React.js
 
@@ -216,3 +217,25 @@ Saya membuat state lagi yang bernama "checked" yang berisi boolean. Jika checkbo
 4. Jika daftar favorit kosong, maka tampilkan empty state.
 Untuk itu, saya mengecek pada function List, jika panjang itemsnya 0 (tidak ada isinya), maka akan me-return empty state. Sedangkan jika tidak, akan mereturn list item
 ![code conditional for empty state](/images/screenshot-tutorial-8/4.1.PNG)
+
+
+## Tutorial 9
+### What I have learned today
+Pada tutorial ini, saya belajar bagaimana membuat frontend website dengan menggunakan React.js dan menghubungkannya dengan backend (Spring)
+
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
+Untuk menyelesaikan LATIHAN no.1, saya mengeset ulang state setiap variable nama, nomorTelepon, rating, dan alamat pada saat submit. Sehingga saat dipakai lagi di form, nilai variable tersebut sudah kosong ("").
+
+2. Jelaskan fungsi dari async dan await !
+ - async berfungsi untuk mendefine sebuah asyncronous function. Hal ini membuat async function selalu mereturn sebuah nilai dan fungsi dapat dijalankan secara parallel. Sedangkan await adalah operator yang digunakan untuk menunggu sebuah Promise. Await hanya dapat digunakan didalam Async block. Await berfungsi untuk membuat JavaScript menunggu sampai sebuah promise me-return result, sehingga eksekusi code dijalankan secara sequensial.
+
+3. Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada pertanyaan ini.
+![Jawaban TODO 1](/images/screenshot-tutorial-9/1.png)
+![Jawaban TODO 2](/images/screenshot-tutorial-9/2.png)
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “ use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
+- componentDidMount : componenDidMount merupakan mounting lifecycle yang akan dipanggil  ketika render selesai dipanggil untuk pertama kali.
+- shouldComponentUpdate : shouldComponentUpdate merupakan updating lifecycle kedua yang dipanggil setelah componentWillReceiveProps dipanggil dan sebelum rendering html dilakuka.
+- componentDidUpdate : componentDidUpdate merupakan updating lifecycle dipanggil segera setelah update terjadi. Metode ini tidak dipanggil untuk render awal.
+- componentWillReceiveProps : componentWillReceiveProps merupakan updating lifecycle pertama yang akan dipanggil apabila Component memiliki props.
+- componentWillMount : componentWillMount merupakan mounting lifecycle pertama yang akan dipanggil sebelum render dipanggil untuk pertama kali.
