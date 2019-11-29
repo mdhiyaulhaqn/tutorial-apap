@@ -230,8 +230,8 @@ Untuk menyelesaikan LATIHAN no.1, saya mengeset ulang state setiap variable nama
  - async berfungsi untuk mendefine sebuah asyncronous function. Hal ini membuat async function selalu mereturn sebuah nilai dan fungsi dapat dijalankan secara parallel. Sedangkan await adalah operator yang digunakan untuk menunggu sebuah Promise. Await hanya dapat digunakan didalam Async block. Await berfungsi untuk membuat JavaScript menunggu sampai sebuah promise me-return result, sehingga eksekusi code dijalankan secara sequensial.
 
 3. Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada pertanyaan ini.
-![Jawaban TODO 1](/images/screenshot-tutorial-9/1.PNG)
-![Jawaban TODO 2](/images/screenshot-tutorial-9/1.PNG)
+![Jawaban TODO 1](/images/screenshot-tutorial-9/1.png)
+![Jawaban TODO 2](/images/screenshot-tutorial-9/2.png)
 
 4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “ use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
 - componentDidMount : componenDidMount merupakan mounting lifecycle yang akan dipanggil  ketika render selesai dipanggil untuk pertama kali.
