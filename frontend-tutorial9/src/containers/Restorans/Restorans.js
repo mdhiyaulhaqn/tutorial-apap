@@ -4,6 +4,7 @@ import classes from './Restorans.module.css'
 import axios from "../../axios-restoran";
 import Modal from '../../components/Modal/Modal';
 import Button from '../../components/Button/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Restorans extends Component{
     constructor(props){
@@ -160,14 +161,18 @@ class Restorans extends Component{
     }
 
     renderSearchForm(){
-        return(<form>
-            <input
-                name="search"
-                type="text"
-                placeholder="Search..."
-                onChange={this.changeSearchHandler}
-            ></input>
-        </form>
+        return(
+    
+        <div className={classes.SearchForm}>
+            <form>
+                <input className="form-control"
+                    name="search"
+                    type="text"
+                    placeholder="🔎 Search..."
+                    onChange={this.changeSearchHandler}
+                ></input>
+            </form>
+        </div>
         );
     }
     
@@ -234,6 +239,7 @@ class Restorans extends Component{
                         key={number}
                         id={number}
                         onClick={this.changePageHandler}
+                        className={classes.PaginationButtonItem}
                         >
                         {number}
                     </button>
@@ -270,7 +276,7 @@ class Restorans extends Component{
                             />)
                         }
                 </div>
-                <div className={classes.PaginationButton}>
+                <div className={classes.PaginationButtons}>
                     {renderPageNumbers}
                 </div>
 

@@ -36,7 +36,29 @@
     padding-top: 20px;
 }
 
-.PaginationButton{
-    display: flex;
-    align-items: center;
+.SearchForm{
+    width: 50%;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 3px;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing:  border-box;
 }
+
+.PaginationButtons{
+    text-align: center;
+    margin: 20px auto;
+}
+
+.PaginationButtonItem{
+    background-color: #c6e377;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #8186d5;
+    color: black;
+    font-family: inherit;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    box-shadow: 2px 2px 2px #36622b;
+}
+
