@@ -1,0 +1,13 @@
+.WhiteModeBg{
+    background-color: #333333;
+}
+.WhiteModeP{
+    color: white;
+}
+
+.DarkModeBg{
+    background-color: white;
+}
+.DarkModeP{
+    color: black;
+}
